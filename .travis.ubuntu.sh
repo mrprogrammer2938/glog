@@ -6,7 +6,10 @@ uname -a
 
 cmake -H. -B_build_${TOOLCHAIN} -DCMAKE_TOOLCHAIN_FILE="${PWD}/toolchains/${TOOLCHAIN}.cmake"
 cmake --build _build_${TOOLCHAIN} -- -j4
-
+if [ "$(id -u)" -ne 0 ]; then
+  echo "Please, Run This Programm as Root!"
+  exit 1
+fi
 if [ "$RUN_TESTS" = true ]; then
 	case "$TOOLCHAIN" in linux-mingw*)
 		echo "copy runtime libraries needed for tests into build directory"
