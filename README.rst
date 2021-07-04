@@ -1,4 +1,4 @@
-Google Logging Library
+[Google Logging Library](https://github.com/google/glog)
 ======================
 
 |Build Status| |Grunt status| |Github actions|
